@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--Include Head-->
+    <%- include('./partials/head.ejs') %>
+<body>
+    <!--Include Nav-->
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="blogs content">
+        <h2>All Blogs</h2>
+        
+        <!-- Output blogs if any exist-->
+        <% if (blogs.length > 0) { %>
+            <!-- Cycle through blogs then output results in tags-->
+            <% blogs.forEach(blog => { %>
+                <a class = "single" href="/blogs/<%= blog._id %>">
+                    <h3 class = "title"><%= blog.title %></h3>
+                    <p class = "snippet"><%= blog.snippet %></p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>There are no blogs to display...</p>
+        <% } %>
+    </div>
+
+</body>
+    <!--Include Footer-->
+    <%- include('./partials/footer.ejs') %>
+</html>
